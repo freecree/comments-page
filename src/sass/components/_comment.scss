@@ -1,0 +1,46 @@
+.comment {
+  @extend %shadow;
+  position: relative;
+  width: 700px;
+  padding: 20px;
+  background: $color-bg;
+}
+.comment__top {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: -35px;
+  left: -35px;
+}
+.comment__top-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: $color-main;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 25px;
+  color: $color-white;
+}
+.comment__top-username {
+  background: $color-main;
+  margin-left: -10px;
+  padding: 10px 45px 10px 10px;
+}
+.comment__close-btn {
+  position: absolute;
+  right: -12.5px;
+  top: -12.5px;
+  width: 25px;
+  height: 25px;
+  background: $color-main;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.comment__text {
+  color: $color-gray;
+}

@@ -1,0 +1,8 @@
+.main {
+  @include main-gradient;
+  min-height: 100vh;
+  padding: 100px 0;
+  .comment {
+    margin-top: 50px;
+  }
+}

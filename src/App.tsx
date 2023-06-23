@@ -1,5 +1,12 @@
 import React from 'react';
+import Comments from './components/Comments';
 
 export default function App() {
-  return <h1>Hello</h1>
+  return (
+    <div className="main">
+      <div className="container">
+        <Comments/>
+      </div>
+    </div>
+  )
 }

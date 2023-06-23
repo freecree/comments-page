@@ -1,4 +1,11 @@
-$color: #aaa;
-body {
-  background: $color;
-}
+@import './abstracts/constants';
+@import './abstracts/mixins';
+@import './abstracts/placeholders';
+
+@import './base';
+
+@import './components/comments';
+@import './components/comment';
+@import './components/main';
+
+
