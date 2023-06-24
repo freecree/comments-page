@@ -33,7 +33,7 @@ module.exports = (env, options) => {
         {
           test: /\.tsx?$/,
           use: {
-            loader: 'babel-loader',
+            loader: 'ts-loader'
           },
           include: [path.join(__dirname, 'src')],
         },
