@@ -27,7 +27,8 @@
 .comment__top-username {
   background: $color-main;
   margin-left: -10px;
-  padding: 10px 45px 10px 10px;
+  padding: 10px 30px 10px 20px;
+  min-width: 170px;
 }
 .comment__close-btn {
   position: absolute;
