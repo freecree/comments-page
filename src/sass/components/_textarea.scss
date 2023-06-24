@@ -1,0 +1,8 @@
+.textarea {
+  width: 100%;
+  border: 2px solid $color-accent;
+  padding: 15px;
+  @extend %main-font;
+  color: $color-gray;
+  font-size: 16px;
+}

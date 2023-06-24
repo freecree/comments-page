@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Comment from './Comment';
+import CommentForm from './CommentForm';
 import {IComment} from '../types/types';
 
 
@@ -38,6 +39,7 @@ export default function Comments() {
         ))
       }
       </div>
+      <CommentForm/>
     </div>
   )
 }

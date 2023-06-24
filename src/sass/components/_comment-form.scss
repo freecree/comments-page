@@ -1,0 +1,9 @@
+.comment-form {
+  position: relative;
+  .btn {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    @extend %shadow-side;
+  }
+}

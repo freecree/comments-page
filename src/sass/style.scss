@@ -1,9 +1,13 @@
+@import './layout';
+
 @import './abstracts/constants';
 @import './abstracts/mixins';
 @import './abstracts/placeholders';
 
 @import './base';
 
+@import './components/textarea';
+@import './components/comment-form';
 @import './components/comments';
 @import './components/comment';
 @import './components/main';
