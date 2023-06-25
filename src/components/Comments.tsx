@@ -22,13 +22,12 @@ export default function Comments() {
     if (!storedComments) {
       loadComments();
     } else {
-      console.log('comments from local storage: ', storedComments);
       setComments(JSON.parse(storedComments));
     }
   }, []);
 
   useEffect(() => {
-    // console.log('useEffect: ', comments);
+    console.log('comments: ', comments);
   }, [comments]);
   return (
     <div className="comments">
@@ -39,7 +38,7 @@ export default function Comments() {
         ))
       }
       </div>
-      <CommentForm/>
+      <CommentForm comments={comments} setComments={setComments}/>
     </div>
   )
 }
