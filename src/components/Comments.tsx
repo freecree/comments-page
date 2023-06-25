@@ -22,9 +22,13 @@ export default function Comments() {
     localStorage.setItem('comments', JSON.stringify([...comments, newComment]));
   }
 
+  function deleteComment(id: number) {
+    setComments(comments.filter((comment: IComment) => comment.id !== id));
+    localStorage.setItem('comments', JSON.stringify(comments.filter((comment: IComment) => comment.id !== id)));
+  }
+
   useEffect(() => {
     const storedComments = localStorage.getItem('comments');
-    console.log('storedComments: ', storedComments);
     if (!storedComments) {
       loadComments();
     } else {
@@ -32,22 +36,12 @@ export default function Comments() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log('Comments::useEffect2: ', comments);
-    // if (comments) {
-    //   localStorage.setItem('comments', JSON.stringify(comments));
-    // }
-    // localStorage.setItem('comments', JSON.stringify(comments));
-  }, [comments]);
-
-  console.log('Comments::render: ', comments);
-
   return (
     <div className="comments">
       <div className = "comments-wrapper">
       {
         comments?.map((comment) => (
-          <Comment key={comment.id} {...comment}/>
+          <Comment key={comment.id} comment={comment} onDelete={deleteComment}/>
         ))
       }
       </div>

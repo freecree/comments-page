@@ -1,7 +1,12 @@
 import React from 'react';
 import {IComment} from '../types/types';
 
-export default function Comment({body, user}: IComment) {
+interface ICommentProps {
+  comment: IComment;
+  onDelete: Function;
+}
+
+export default function Comment({comment, onDelete}: ICommentProps) {
   function getAvatarInitials(userName: string) {
     return userName.slice(0, 2).toUpperCase();
   }
@@ -9,14 +14,19 @@ export default function Comment({body, user}: IComment) {
     <div className="comment">
       <div className="comment__top">
         <div className="comment__top-avatar">
-          {getAvatarInitials(user.username)}
+          {getAvatarInitials(comment.user.username)}
         </div>
         <div className="comment__top-username">
-          {user.username}
+          {comment.user.username}
         </div>
       </div>
-      <div className="close-btn comment__close-btn">X</div>
-      <p className="comment__text">{body}</p>
+      <div
+        className="close-btn comment__close-btn"
+        onClick={() => onDelete(comment.id)}
+        >
+        X
+        </div>
+      <p className="comment__text">{comment.body}</p>
     </div>
     )
 }
