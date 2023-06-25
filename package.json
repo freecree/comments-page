@@ -2,11 +2,13 @@
   "name": "comments-page",
   "version": "1.0.0",
   "description": "Test for pics.io\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[CPics.io\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001br Pics.io",
+  "homepage": "https://freecree.github.io/comments-page",
   "main": "index.js",
   "scripts": {
     "style": "sass --watch src/sass/style.scss src/sass/style.css",
     "dev": "webpack --mode development",
     "prod": "webpack --mode production",
+    "deploy": "gh-pages -d dist",
     "eslint": "npx eslint ./src",
     "eslint-fix": "npx eslint --fix ./src"
   },
@@ -19,6 +21,7 @@
     "css-loader": "^6.8.1",
     "eslint": "^8.43.0",
     "eslint-config-airbnb": "^19.0.4",
+    "gh-pages": "^5.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "sass": "^1.63.5",

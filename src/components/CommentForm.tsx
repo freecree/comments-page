@@ -40,7 +40,7 @@ export default function CommentForm({comments, onSubmit}: ICommentFormProps) {
   }
 
   useEffect(() => {
-    if (!newComment && comments.length > 0) {
+    if (!newComment && comments) {
       const emptyComment = getEmptyComment();
       setNewComment(emptyComment);
       localStorage.setItem('newComment', JSON.stringify(emptyComment));
