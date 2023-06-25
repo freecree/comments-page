@@ -5,13 +5,14 @@ interface ITextareaProps {
   onInput: Function
 }
 export default function Textarea({value, onInput}: ITextareaProps) {
-  function onChangeHandler(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    onInput(event.target.value);
-  }
 
   return (
-    <textarea className="textarea" value={value} onChange={onChangeHandler} name="text-name" rows={10}>
-      
+    <textarea
+      className="textarea"
+      value={value}
+      onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => onInput(e.target.value)}
+      name="text-name"
+      rows={10}>
     </textarea>
   )
 }

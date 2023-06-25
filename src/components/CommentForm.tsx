@@ -20,7 +20,6 @@ export default function CommentForm({comments, onSubmit}: ICommentFormProps) {
     const maxId = comments.reduce((maxId: number, comment: IComment) => {
       return maxId < comment.id ? comment.id : maxId;
     }, 0);
-
     return {
       body: '',
       id: maxId + 1,
@@ -41,7 +40,6 @@ export default function CommentForm({comments, onSubmit}: ICommentFormProps) {
   }
 
   useEffect(() => {
-    // console.log('CommentForm::useEffect: ', comments, comments.length);
     if (!newComment && comments.length > 0) {
       const emptyComment = getEmptyComment();
       setNewComment(emptyComment);

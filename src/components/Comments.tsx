@@ -5,7 +5,8 @@ import {IComment} from '../types/types';
 
 
 export default function Comments() {
-  const [comments, setComments] = useState<IComment[]>([]);
+  const localStorageComments = JSON.parse(localStorage.getItem('comments'));
+  const [comments, setComments] = useState<IComment[] | null>(localStorageComments);
 
   function loadComments() {
     fetch('https://dummyjson.com/comments')
@@ -19,22 +20,24 @@ export default function Comments() {
 
   function AddNewComment(newComment: IComment) {
     setComments([...comments, newComment]);
-    localStorage.setItem('comments', JSON.stringify([...comments, newComment]));
   }
 
   function deleteComment(id: number) {
+    console.log('In delete');
     setComments(comments.filter((comment: IComment) => comment.id !== id));
-    localStorage.setItem('comments', JSON.stringify(comments.filter((comment: IComment) => comment.id !== id)));
   }
 
   useEffect(() => {
-    const storedComments = localStorage.getItem('comments');
-    if (!storedComments) {
+    if (comments === null) {
       loadComments();
-    } else {
-      setComments(JSON.parse(storedComments));
     }
   }, []);
+
+  useEffect(() => {
+    if (comments !== null) {
+      localStorage.setItem('comments', JSON.stringify(comments));
+    }
+  }, [comments]);
 
   return (
     <div className="comments">

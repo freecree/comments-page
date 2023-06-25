@@ -25,7 +25,7 @@ export default function Comment({comment, onDelete}: ICommentProps) {
         onClick={() => onDelete(comment.id)}
         >
         X
-        </div>
+      </div>
       <p className="comment__text">{comment.body}</p>
     </div>
     )
