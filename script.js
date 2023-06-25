@@ -34039,7 +34039,7 @@ function CommentForm(_a) {
         localStorage.removeItem('newComment');
     }
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-        if (!newComment && comments.length > 0) {
+        if (!newComment && comments) {
             var emptyComment = getEmptyComment();
             setNewComment(emptyComment);
             localStorage.setItem('newComment', JSON.stringify(emptyComment));
