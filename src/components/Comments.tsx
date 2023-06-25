@@ -17,8 +17,14 @@ export default function Comments() {
       });
   }
 
+  function AddNewComment(newComment: IComment) {
+    setComments([...comments, newComment]);
+    localStorage.setItem('comments', JSON.stringify([...comments, newComment]));
+  }
+
   useEffect(() => {
     const storedComments = localStorage.getItem('comments');
+    console.log('storedComments: ', storedComments);
     if (!storedComments) {
       loadComments();
     } else {
@@ -27,8 +33,15 @@ export default function Comments() {
   }, []);
 
   useEffect(() => {
-    console.log('comments: ', comments);
+    console.log('Comments::useEffect2: ', comments);
+    // if (comments) {
+    //   localStorage.setItem('comments', JSON.stringify(comments));
+    // }
+    // localStorage.setItem('comments', JSON.stringify(comments));
   }, [comments]);
+
+  console.log('Comments::render: ', comments);
+
   return (
     <div className="comments">
       <div className = "comments-wrapper">
@@ -38,7 +51,7 @@ export default function Comments() {
         ))
       }
       </div>
-      <CommentForm comments={comments} setComments={setComments}/>
+      <CommentForm comments={comments} onSubmit={AddNewComment}/>
     </div>
   )
 }
